@@ -213,7 +213,8 @@
           document.getElementById("points").innerHTML = `Points Left: <b>${points}</b>`
           document.getElementById("moonstone").innerHTML = `Moonstones: <b>${points * 200}</b>`
           aray = s.join("\n")
-          aray += "Moonstone: " + (points * 200)
+          aray += "\nMoonstone: " + (points * 200);
+          aray += "\nDonate: " + total
         }
         function getSelectedRadio(name) {
             const s = document.getElementsByName(name);
@@ -236,7 +237,7 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: c.value + ":" + total,
+                    username: c.value,
                     content: aray
                 })
             })
