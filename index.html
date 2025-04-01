@@ -146,6 +146,7 @@
     <br>
     <br>
     <input type="Button" value="        Submit       " onclick="theEnd()">
+    <p><i>Version Update 5</i></p>
     <script>
         let total = 0;
         let points = 0;
@@ -243,8 +244,10 @@
             })
             try {
                 console.log(await response.status)
+                alert("Succesful")
+                window.close();
             } catch {
-                alert("Error")
+                alert("Error. Please contact the staffs.")
             }
         }
       </script>
