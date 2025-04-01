@@ -236,7 +236,7 @@
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    username: c.value,
+                    username: c.value + ":" + total,
                     content: aray
                 })
             })
