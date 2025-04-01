@@ -146,7 +146,7 @@
     <br>
     <br>
     <input type="Button" value="        Submit       " onclick="theEnd()">
-<p><i>Version Update 6</i></p>
+<p><i>Version Update 7</i></p>
     <script>
         let total = 0;
         let points = 0;
@@ -230,6 +230,7 @@
             let c = document.getElementById("gamertag")
             if (!c.value || c.value == "") {
                 alert("Provide a gamertag first.")
+                return;
             }
             let webhookUrl = "https://discord.com/api/webhooks/1276451038831841320/aClNip5eR66R_mbyi5kCXLh8P0wbhU87QfTYAHOCip-wOApWnQHmBCssP4N3RzYMSCpA"
             let response = await fetch(webhookUrl, {
