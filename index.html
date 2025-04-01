@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='cache-control' content='no-cache'> 
+    <meta http-equiv='expires' content='0'> 
+    <meta http-equiv='pragma' content='no-cache'>
     <title>Choose your Perk</title>
 </head>
 <body>
@@ -208,9 +211,9 @@
           })
           
           document.getElementById("points").innerHTML = `Points Left: <b>${points}</b>`
-          document.getElementById("moonstone").innerHTML = `Moonstones: <b>${(total - points) * 200}</b>`
+          document.getElementById("moonstone").innerHTML = `Moonstones: <b>${points * 200}</b>`
           aray = s.join("\n")
-          aray += "Moonstone: " + ((total - points) * 200)
+          aray += "Moonstone: " + points * 200)
         }
         function getSelectedRadio(name) {
             const s = document.getElementsByName(name);
