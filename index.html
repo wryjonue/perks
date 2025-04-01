@@ -7,6 +7,8 @@
 </head>
 <body>
     <p id="points">Points Left: <b>100</b></p>
+    <p style="margin-bottom: 0" id="moonstone">Moonstone: <b>100</b></p>
+    <p style="margin-top: 0;margin-bottom: 0;"><i>Excess points will be converted to moonstones.</i></p>
     <input type="text" id="gamertag" placeholder="Gamertag">
     <br>
     <label>
@@ -204,8 +206,11 @@
           s.forEach(t => {
             points -= (t.split(":")[0] * 1)
           })
+          
           document.getElementById("points").innerHTML = `Points Left: <b>${points}</b>`
+          document.getElementById("moonstone").innerHTML = `Moonstones: <b>${(total - points) * 200}</b>`
           aray = s.join("\n")
+          aray += "Moonstone: " + ((total - points) * 200)
         }
         function getSelectedRadio(name) {
             const s = document.getElementsByName(name);
