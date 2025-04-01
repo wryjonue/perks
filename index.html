@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose your Perk</title>
+</head>
+<body>
+    <p id="points">Points Left: <b>100</b></p>
+    <input type="text" id="gamertag" placeholder="Gamertag">
+    <br>
+    <label>
+        <input type="checkbox" name="free" value="0:FreeTitle0" checked onclick="pointUpdater(this)">
+        0 - Free Title
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="title" value="5:FreeTitle1" onclick="pointUpdater(this)">
+        5 - Additional Title
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="title" value="5:FreeTitle2" onclick="pointUpdater(this)">
+        5 - Additional Title
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="title" value="5:FreeTitle" onclick="pointUpdater(this)">
+        5 - Additional Title
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="title" value="5:FreeTitle" onclick="pointUpdater(this)">
+        5 - Additional Title
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="title" value="5:FreeTitle" onclick="pointUpdater(this)">
+        5 - Additional Title
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="chibi" value="10:ChibiDrawing" onclick="pointUpdater(this)">
+        10 - Minecraft/Discord skin Chibi Drawing
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="chibi" value="10:ChibiDrawing" onclick="pointUpdater(this)">
+        10 - Minecraft/Discord skin Chibi Drawing
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="landclaim" value="0:Landclaim0" checked onclick="pointUpdater(this)">
+        0 - Landclaims +0
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="landclaim" value="10:Landclaim3" onclick="pointUpdater(this)">
+        10 - Landclaims +3
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="landclaim" value="15:Landclaim5" onclick="pointUpdater(this)">
+        15 - Landclaims +5
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="landclaim" value="20:Landclaim8" onclick="pointUpdater(this)">
+        20 - Landclaims +8
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="landclaim" value="25:Landclaim10" onclick="pointUpdater(this)">
+        25 - Landclaims +10
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warpcreate" value="0:Warpcreate0" checked onclick="pointUpdater(this)">
+        0 - 0% Warp creation discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warpcreate" value="5:Warpcreate5" onclick="pointUpdater(this)">
+        5 - 5% Warp creation discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warpcreate" value="10:Warpcreate10" onclick="pointUpdater(this)">
+        10 - 10% Warp creation discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warpcreate" value="15:Warpcreate15" onclick="pointUpdater(this)">
+        15 - 15% Warp creation discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warpcreate" value="20:Warpcreate20" onclick="pointUpdater(this)">
+        20 - 20% Warp creation discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warptp" value="0:Warptp0" checked onclick="pointUpdater(this)">
+        0 - 0% Warp TP discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warptp" value="10:Warptp5" onclick="pointUpdater(this)">
+        10 - 5% Warp TP discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warptp" value="15:Warptp8" onclick="pointUpdater(this)">
+        15 - 8% Warp TP discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warptp" value="20:Warptp10" onclick="pointUpdater(this)">
+        20 - 10% Warp TP discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warptp" value="25:Warptp15" onclick="pointUpdater(this)">
+        25 - 15% Warp TP discount
+    </label>
+    <br>
+    <label>
+        <input type="radio" name="warptp" value="30:Warptp15" onclick="pointUpdater(this)">
+        30 - 20% Warp TP discount
+    </label>
+    <p>Upcoming (Not yet implemented)</p>
+    <label>
+        <input type="checkbox" name="shopkeeper" value="5:Shopkeeper" onclick="pointUpdater(this)">
+        5 - Free Shopkeeper (Send your skin on discord)
+    </label>
+    <br>
+    <label>
+        <input type="checkbox" name="shopkeeper" value="5:Shopkeeper" onclick="pointUpdater(this)">
+        15 - Minigame Specific Perks (e.g Potion Effect Boosts)
+    </label>
+    <br>
+    <br>
+    <input type="Button" value="        Submit       " onclick="theEnd()">
+    <script>
+        let total = 0;
+        let points = 0;
+        let Slandclaim;
+        let Swarpcreate;
+        let Swarptp;
+        let aray = "";
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        window.onload = function() {
+            token = getQueryParam("token");
+            if (!token) {
+                alert("URL Error: Please contact the staff")
+                return;
+            }
+            total = token * 1
+            points = token * 1;
+            Slandclaim = getSelectedRadio("landclaim")
+            Swarpcreate = getSelectedRadio("warpcreate")
+            Swarptp = getSelectedRadio("warptp")
+            pointUpdater(undefined);
+        }
+
+        function pointUpdater(abc) {
+          let s = [];
+          if (!abc) {
+
+          } else if (abc.type == "checkbox" && abc.checked && (points - (abc.value.split(":")[0] * 1)) < 0) {
+            alert("Not enough points.")
+            abc.checked = false;
+            return;
+          } else if (abc.name == "landclaim" && (points + theValue(Slandclaim) - theValue(abc)) < 0) {
+            alert("Not enough points.")
+            abc.checked = false;
+            Slandclaim.checked = true;
+            return;
+          } else if (abc.name == "warpcreate" && (points + theValue(Swarpcreate) - theValue(abc)) < 0) {
+            alert("Not enough points.")
+            abc.checked = false;
+            Swarpcreate.checked = true;
+            return;
+          } else if (abc.name == "warptp" && (points + theValue(Swarptp) - theValue(abc)) < 0) {
+            alert("Not enough points.")
+            abc.checked = false;
+            Swarptp.checked = true;
+            return;
+          }
+          document.querySelectorAll('input[type="checkbox"]:checked').forEach((cb) => {
+            s.push(cb.value);
+          });
+          s.push(getSelectedRadio("landclaim").value);
+          Slandclaim = getSelectedRadio("landclaim");
+          s.push(getSelectedRadio("warpcreate").value);
+          Swarpcreate = getSelectedRadio("warpcreate");
+          s.push(getSelectedRadio("warptp").value);
+          Swarptp = getSelectedRadio("warptp");
+          points = total;
+          s.forEach(t => {
+            points -= (t.split(":")[0] * 1)
+          })
+          document.getElementById("points").innerHTML = `Points Left: <b>${points}</b>`
+          aray = s.join("\n")
+        }
+        function getSelectedRadio(name) {
+            const s = document.getElementsByName(name);
+            for (let t of s) {
+                if (t.checked) return t;
+            }
+        }
+        function theValue(com) {
+            return 1 * com.value.split(":")[0];
+        }
+        async function theEnd() {
+            let c = document.getElementById("gamertag")
+            if (!c.value || c.value == "") {
+                alert("Provide a gamertag first.")
+            }
+            let webhookUrl = "https://discord.com/api/webhooks/1276451038831841320/aClNip5eR66R_mbyi5kCXLh8P0wbhU87QfTYAHOCip-wOApWnQHmBCssP4N3RzYMSCpA"
+            let response = await fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: c.value,
+                    content: aray
+                })
+            })
+            try {
+                console.log(await response.status)
+            } catch {
+                alert("Error")
+            }
+        }
+      </script>
+</body>
+</html>
