@@ -1,152 +1,219 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv='cache-control' content='no-cache'> 
-    <meta http-equiv='expires' content='0'> 
-    <meta http-equiv='pragma' content='no-cache'>
-    <title>Choose your Perk</title>
-</head>
-<body>
-    <p id="points">Points Left: <b>100</b></p>
-    <p style="margin-bottom: 0" id="moonstone">Moonstone: <b>100</b></p>
-    <p style="margin-top: 0;margin-bottom: 0;"><i>Excess points will be converted to moonstones.</i></p>
-    <input type="text" id="gamertag" placeholder="Gamertag">
-    <br>
-    <label>
-        <input type="checkbox" name="free" value="0:FreeTitle0" checked onclick="pointUpdater(this)">
-        0 - Free Title
+    <title>NightShifts SMP Apply</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+  
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: #111;
+        color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /*height: 100vh;*/
+      }
+      br {
+        height: 5px
+      }
+      div {
+        background: #1a1a1a;
+        padding: 30px;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 400px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+      }
+  
+      h2 {
+        text-align: center;
+        margin-bottom: 5px;
+        color: #0ff;
+      }
+      p#moonstones, p#donate {
+        margin-bottom: 10px;
+        color: #fff;
+        font-family: monospace;
+        font-size: 15px;
+      }
+      input[type="text"]{
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+      }
+      input[type="range"] {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+      input[type="checkbox"] {
+        padding: 10px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+      }
+  
+      label {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        background-color: #FFFFFF20;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+        
+        /*margin-bottom: 10px;*/
+      }
+  
+      button {
+        width: 100%;
+        padding: 10px;
+        background: #0ff;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #000;
+      }
+  
+      p.rules {
+        font-size: 13px;
+        color: #aaa;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="submitForm">
+      <h2>Choose Your Perks</h2>
+      <i>Excess amounts will be converted to 3 landclaims per 5 PHP.</i>
+      <p id="moonstones">Donation Amount: <b id="donit">PHP</b></p>
+      <p id="donate">Land Claims: +<b id="monston"></b></p>
+      
+      <input type="text" id="gamertag" name="gamertag" placeholder="Minecraft Gamertag" required="">
+      <!--label for="volume">(<b>5 PHP</b>&nbsp;= 3 Landclaims) +<output id="output">0</output>&nbsp;landclaims</label>
+     <input type="range" id="volume" name="volume" min="0" max="100" value="0" step="5" oninput="output.value = (3 * volume.value) / 5">
+    -->
+     <label>
+    <input type="checkbox" name="free" value="0 - Custom Title" checked onclick="pointUpdater(this)">
+        <b>Free</b>&nbsp;- Free Custom Title
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="checkbox" name="title" value="5:FreeTitle1" onclick="pointUpdater(this)">
-        5 - Additional Title
+        <input type="checkbox" name="title" value="5 - Lemme Explain" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;
+        <img src="lemex.png" style="width: 50%; height: auto; object-fit: cover; image-rendering: pixelated;">
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="checkbox" name="title" value="5:FreeTitle2" onclick="pointUpdater(this)">
-        5 - Additional Title
+        <input type="checkbox" name="title" value="5 - Night Owl" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;
+        <img src="nightowl.png" style="width: 50%; height: auto; object-fit: cover; image-rendering: pixelated;">
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="checkbox" name="title" value="5:FreeTitle3" onclick="pointUpdater(this)">
-        5 - Additional Title
+        <input type="checkbox" name="title" value="5 - King" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;
+        <img src="king.png" style="width: 50%; height: auto; object-fit: cover; image-rendering: pixelated;">
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="checkbox" name="title" value="5:FreeTitle4" onclick="pointUpdater(this)">
-        5 - Additional Title
+        <input type="checkbox" name="title" value="5 - The Baker" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;
+        <img src="baker.png" style="width: 50%; height: auto; object-fit: cover; image-rendering: pixelated;">
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="checkbox" name="chibi" value="10:ChibiDrawing" onclick="pointUpdater(this)">
-        10 - Minecraft/Discord skin Chibi Drawing
+        <input type="checkbox" name="title" value="5 - Potioneer" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;
+        <img src="potion.png" style="width: 50%; height: auto; object-fit: cover; image-rendering: pixelated;">
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="checkbox" name="chibi" value="10:ChibiDrawing" onclick="pointUpdater(this)">
-        10 - Minecraft/Discord skin Chibi Drawing
+        <input type="checkbox" name="title" value="5 - Fish" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;
+        <img src="fsih.png" style="width: 50%; height: auto; object-fit: cover; image-rendering: pixelated;">
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="landclaim" value="0:Landclaim0" checked onclick="pointUpdater(this)">
-        0 - Landclaims +0
+        <input type="checkbox" name="title" value="5 - AHHH" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;
+        <img src="ahh.png" style="width: 50%; height: auto; object-fit: cover; image-rendering: pixelated;">
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
+    <hr>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="landclaim" value="5:Landclaim2" checked onclick="pointUpdater(this)">
-        5 - Landclaims +2
+        <input type="radio" name="warpcreate" value="0 - 0% Warp Create Discount" checked onclick="pointUpdater(this)">
+        <b>0 PHP</b>&nbsp;- 0% Warp creation discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="landclaim" value="10:Landclaim4" onclick="pointUpdater(this)">
-        10 - Landclaims +4
+        <input type="radio" name="warpcreate" value="5 - 5% Warp Create Discount" onclick="pointUpdater(this)">
+        <b>5 PHP</b>&nbsp;- 5% Warp creation discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="landclaim" value="15:Landclaim6" onclick="pointUpdater(this)">
-        15 - Landclaims +6
+        <input type="radio" name="warpcreate" value="10 - 10% Warp Create Discount" onclick="pointUpdater(this)">
+        <b>10 PHP</b>&nbsp;- 10% Warp creation discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="landclaim" value="20:Landclaim8" onclick="pointUpdater(this)">
-        20 - Landclaims +8
+        <input type="radio" name="warpcreate" value="15 - 15% Warp Create Discount" onclick="pointUpdater(this)">
+        <b>15 PHP</b>&nbsp;- 15% Warp creation discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="landclaim" value="25:Landclaim10" onclick="pointUpdater(this)">
-        25 - Landclaims +10
+        <input type="radio" name="warpcreate" value="20 - 20% Warp Create Discount" onclick="pointUpdater(this)">
+        <b>20 PHP</b>&nbsp;- 20% Warp creation discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
+    
+    <hr>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="warpcreate" value="0:Warpcreate0" checked onclick="pointUpdater(this)">
-        0 - 0% Warp creation discount
+        <input type="radio" name="warptp" value="0 - 0% Warp TP Discount" checked onclick="pointUpdater(this)">
+        <b>0 PHP</b>&nbsp;- 0% Warp TP discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="warpcreate" value="5:Warpcreate5" onclick="pointUpdater(this)">
-        5 - 5% Warp creation discount
+        <input type="radio" name="warptp" value="10 - 10% Warp TP Discount" onclick="pointUpdater(this)">
+        <b>10 PHP</b>&nbsp;- 4% Warp TP discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="warpcreate" value="10:Warpcreate10" onclick="pointUpdater(this)">
-        10 - 10% Warp creation discount
+        <input type="radio" name="warptp" value="15 - 8% Warp TP Discount" onclick="pointUpdater(this)">
+        <b>15 PHP</b>&nbsp;- 8% Warp TP discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="warpcreate" value="15:Warpcreate15" onclick="pointUpdater(this)">
-        15 - 15% Warp creation discount
+        <input type="radio" name="warptp" value="20 - 12% Warp TP Discount" onclick="pointUpdater(this)">
+        <b>20 PHP</b>&nbsp;- 12% Warp TP discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="warpcreate" value="20:Warpcreate20" onclick="pointUpdater(this)">
-        20 - 20% Warp creation discount
+        <input type="radio" name="warptp" value="25 - 16% Warp TP Discount" onclick="pointUpdater(this)">
+        <b>25 PHP</b>&nbsp; - 16% Warp TP discount
     </label>
-    <br>
+    <span style="display: block; height: 4px;"></span>
     <label>
-        <input type="radio" name="warptp" value="0:Warptp0" checked onclick="pointUpdater(this)">
-        0 - 0% Warp TP discount
+        <input type="radio" name="warptp" value="30 - 20% Warp TP Discount" onclick="pointUpdater(this)">
+        <b>30 PHP</b>&nbsp; - 20% Warp TP discount
     </label>
-    <br>
-    <label>
-        <input type="radio" name="warptp" value="10:Warptp5" onclick="pointUpdater(this)">
-        10 - 5% Warp TP discount
-    </label>
-    <br>
-    <label>
-        <input type="radio" name="warptp" value="15:Warptp8" onclick="pointUpdater(this)">
-        15 - 8% Warp TP discount
-    </label>
-    <br>
-    <label>
-        <input type="radio" name="warptp" value="20:Warptp10" onclick="pointUpdater(this)">
-        20 - 10% Warp TP discount
-    </label>
-    <br>
-    <label>
-        <input type="radio" name="warptp" value="25:Warptp15" onclick="pointUpdater(this)">
-        25 - 15% Warp TP discount
-    </label>
-    <br>
-    <label>
-        <input type="radio" name="warptp" value="30:Warptp15" onclick="pointUpdater(this)">
-        30 - 20% Warp TP discount
-    </label>
-    <p>Upcoming (Not yet implemented)</p>
-    <label>
-        <input type="checkbox" name="shopkeeper" value="5:Shopkeeper" onclick="pointUpdater(this)">
-        5 - Free Shopkeeper (Send your skin on discord)
-    </label>
-    <br>
-    <label>
-        <input type="checkbox" name="shopkeeper" value="5:MinigamePerks" onclick="pointUpdater(this)">
-        15 - Minigame Specific Perks (e.g Potion Effect Boosts)
-    </label>
-    <br>
-    <br>
-    <input type="Button" value="        Submit       " onclick="theEnd()">
-<p><i>Version Update 8</i></p>
+    <span style="display: block; height: 4px;"></span>
+      <button type="submit" onclick="theEnd()">Submit</button>
+</div>
+  
     <script>
         let total = 0;
         let points = 0;
@@ -177,7 +244,7 @@
           let s = [];
           if (!abc) {
 
-          } else if (abc.type == "checkbox" && abc.checked && (points - (abc.value.split(":")[0] * 1)) < 0) {
+          } else if (abc.type == "checkbox" && abc.checked && (points - (abc.value.split(" - ")[0] * 1)) < 0) {
             alert("Not enough points.")
             abc.checked = false;
             return;
@@ -200,21 +267,23 @@
           document.querySelectorAll('input[type="checkbox"]:checked').forEach((cb) => {
             s.push(cb.value);
           });
-          s.push(getSelectedRadio("landclaim").value);
-          Slandclaim = getSelectedRadio("landclaim");
+          /*s.push(getSelectedRadio("landclaim").value);
+          Slandclaim = getSelectedRadio("landclaim");*/
           s.push(getSelectedRadio("warpcreate").value);
           Swarpcreate = getSelectedRadio("warpcreate");
           s.push(getSelectedRadio("warptp").value);
           Swarptp = getSelectedRadio("warptp");
           points = total;
           s.forEach(t => {
-            points -= (t.split(":")[0] * 1)
+            points -= (t.split(" - ")[0] * 1)
           })
           
-          document.getElementById("points").innerHTML = `Points Left: <b>${points}</b>`
-          document.getElementById("moonstone").innerHTML = `Moonstones: <b>${points * 200}</b>`
+          //document.getElementById("points").innerHTML = `Points Left: <b>${points}</b>`
+          //document.getElementById("moonstones").innerHTML = `Moonstones: <b>${points * 200}</b>`
+          donit.textContent = points + " PHP"
+          monston.textContent = (3 * points)/ 5
           aray = s.join("\n")
-          aray += "\nMoonstone: " + (points * 200);
+          aray += "\nLandclaims: " + ((3 * points) / 5);
           aray += "\nDonate: " + total
         }
         function getSelectedRadio(name) {
@@ -224,7 +293,7 @@
             }
         }
         function theValue(com) {
-            return 1 * com.value.split(":")[0];
+            return 1 * com.value.split(" - ")[0];
         }
         async function theEnd() {
             let c = document.getElementById("gamertag")
@@ -252,5 +321,6 @@
             }
         }
       </script>
-</body>
-</html>
+  
+  
+  </body></html>
